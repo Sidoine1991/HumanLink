@@ -1,2 +1,2 @@
 # HumanLink
-HumanLink est une application mobile qui lutte contre l’isolement urbain en connectant des personnes proches géographiquement et partageant un état émotionnel similaire. L’app s’appuie sur une analyse d’émotions (texte et voix) et des cartes interactives pour favoriser des rencontres réelles, sécurisées et authentiques.
+HumanLink is a mobile application designed to fight urban isolation by connecting people who are geographically close and share a similar emotional state. It leverages emotion analysis (text and voice) and interactive maps to foster real-life, secure, and authentic encounters.
