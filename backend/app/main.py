@@ -1,5 +1,10 @@
-from fastapi import FastAPI
+from datetime import datetime
+
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 from .config import settings
 from .routers import auth as auth_router
 from .routers import mood as mood_router
@@ -17,6 +22,9 @@ from .models import User, MoodEvent, Feedback, Conversation, Message, Notificati
 def create_app() -> FastAPI:
     app = FastAPI(title=settings.app_name, debug=settings.debug)
     
+    app.mount("/static", StaticFiles(directory="static"), name="static")
+    templates = Jinja2Templates(directory="templates")
+
     # Vérifier que nous utilisons Supabase
     if settings.database_url.startswith("postgresql"):
         print("✅ Connexion à Supabase PostgreSQL configurée")
@@ -69,6 +77,27 @@ def create_app() -> FastAPI:
     def health():
         return {"status": "ok"}
 
+    @app.get("/", response_class=HTMLResponse, tags=["meta"])
+    def landing(request: Request):
+        return templates.TemplateResponse(
+            "index.html",
+            {
+                "request": request,
+                "app_name": settings.app_name,
+                "year": datetime.utcnow().year,
+            },
+        )
+
+    @app.get("/status", tags=["meta"])
+    def status():
+        return {
+            "name": settings.app_name,
+            "version": "0.1.0",
+            "status": "online",
+            "docs": "/docs",
+            "health": "/health",
+        }
+
     app.include_router(auth_router.router)
     app.include_router(mood_router.router)
     app.include_router(match_router.router)
@@ -82,16 +111,5 @@ def create_app() -> FastAPI:
 
 
 app = create_app()
-
-
-@app.get("/", tags=["meta"])
-def root():
-    return {
-        "name": settings.app_name,
-        "version": "0.1.0",
-        "status": "online",
-        "docs": "/docs",
-        "health": "/health",
-    }
 
 

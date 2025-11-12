@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ app_name }} · Connect People Nearby</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/landing.css') }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="hl-hero">
+      <div class="hl-hero__content">
+        <span class="hl-badge">HumanLink</span>
+        <h1 class="hl-title">Connecter les émotions. Créer des rencontres authentiques.</h1>
+        <p class="hl-subtitle">
+          {{ app_name }} rapproche les personnes proches géographiquement et émotionnellement.
+          Laissez l'intelligence émotionnelle identifier les conversations qui comptent.
+        </p>
+        <div class="hl-cta">
+          <a href="/docs" class="hl-button hl-button--primary">Explorer l’API</a>
+          <a href="https://github.com/Sidoine1991/HumanLink" class="hl-button hl-button--ghost">
+            Voir le code source
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="hl-main">
+      <section class="hl-section">
+        <h2>Fonctionnalités clés</h2>
+        <div class="hl-cards">
+          <article class="hl-card">
+            <h3>Matching émotionnel</h3>
+            <p>
+              Analysez le texte et la voix pour comprendre l’état émotionnel et proposer des rencontres pertinentes.
+            </p>
+          </article>
+          <article class="hl-card">
+            <h3>Cartographie en temps réel</h3>
+            <p>
+              Visualisez les utilisateurs à proximité et découvrez des lieux recommandés pour se rencontrer.
+            </p>
+          </article>
+          <article class="hl-card">
+            <h3>Expérience sécurisée</h3>
+            <p>
+              Authentification robuste, vérification d’identité et protection des données sensibles.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="hl-section hl-section--alt">
+        <div class="hl-grid">
+          <div>
+            <h2>Prêt à démarrer ?</h2>
+            <p>
+              Consultez la documentation interactive, configurez vos clés d’API puis connectez
+              HumanLink à votre application mobile ou web.
+            </p>
+          </div>
+          <ul class="hl-links">
+            <li><a href="/docs">Documentation interactive</a></li>
+            <li><a href="/status">Endpoint de statut JSON</a></li>
+            <li><a href="https://github.com/Sidoine1991/HumanLink">Guide développeur</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="hl-footer">
+      <p>&copy; {{ year }} HumanLink. Tous droits réservés.</p>
+    </footer>
+  </body>
+</html>
+

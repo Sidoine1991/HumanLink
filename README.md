@@ -17,6 +17,7 @@ HumanLink is a mobile application that fights urban isolation by connecting near
 - [Tech Stack](#tech-stack)
 - [Illustrated Architecture](#illustrated-architecture)
 - [Getting Started](#getting-started)
+- [Production Landing Page](#production-landing-page)
 - [Environment Configuration](#environment-configuration)
 - [Project Structure](#project-structure)
 - [Available Scripts](#available-scripts)
@@ -112,6 +113,17 @@ Customize the compose file with your secrets via environment variables or `.env`
 
 ---
 
+## Production Landing Page
+- Rendered by FastAPI using Jinja templates (`backend/templates/index.html`).
+- Static assets served from `backend/static/`.
+- Default routes:
+  - `/` — marketing landing page.
+  - `/status` — lightweight JSON status (replaces previous root JSON).
+  - `/docs` — interactive Swagger UI.
+  - `/health` — health-check endpoint for Render.
+
+---
+
 ## Environment Configuration
 - Copy `backend/env.example` to `backend/.env` and replace every placeholder value with your own secrets.
 - Do **not** commit `.env`, `.venv`, or generated artifacts. The repository `.gitignore` keeps them out of version control.
@@ -131,6 +143,8 @@ For local development without Supabase, leave `DATABASE_URL` empty to fall back 
 HumanLink/
 ├── backend/                  # FastAPI service
 │   ├── app/                  # Application modules (routers, models, services)
+│   ├── static/               # CSS & assets for the landing page
+│   ├── templates/            # Jinja templates (landing page)
 │   ├── database/             # SQL migrations & helpers
 │   ├── requirements.txt
 │   └── env.example           # Template for secrets (placeholders only)
