@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": [
+      "es2017"
+    ],
+    "jsx": "react-jsx",
+    "strict": true,
+    "noEmit": true,
+    "moduleResolution": "bundler",
+    "types": [
+      "react",
+      "react-dom",
+      "node"
+    ],
+    "skipLibCheck": true
+  },
+  "extends": "expo/tsconfig.base"
+}

@@ -1,0 +1,56 @@
+{
+  "name": "humanlink-mobile",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.js",
+  "browser": {
+    "react-native": "react-native-web"
+  },
+  "scripts": {
+    "start": "expo start",
+    "dev": "webpack serve --config webpack.dev.config.js",
+    "build": "webpack --mode production --config webpack.dev.config.js",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@expo/metro-runtime": "~6.1.2",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@react-navigation/native": "^6.1.17",
+    "@react-navigation/native-stack": "^6.9.26",
+    "axios": "^1.6.7",
+    "expo": "^54.0.23",
+    "expo-constants": "~18.0.10",
+    "expo-haptics": "~15.0.7",
+    "expo-location": "~19.0.7",
+    "expo-secure-store": "~15.0.7",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-gesture-handler": "~2.28.0",
+    "react-native-maps": "1.20.1",
+    "react-native-reanimated": "~4.1.1",
+    "react-native-safe-area-context": "~5.6.0",
+    "react-native-screens": "~4.16.0",
+    "react-native-web": "~0.21.0",
+    "react-native-worklets": "0.5.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-transform-runtime": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
+    "@types/node": "^20.19.24",
+    "@types/react": "~18.2.79",
+    "@types/react-dom": "~18.2.25",
+    "babel-loader": "^9.2.1",
+    "html-webpack-plugin": "^5.6.4",
+    "typescript": "~5.9.2",
+    "webpack": "^5.102.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.2.2"
+  }
+}

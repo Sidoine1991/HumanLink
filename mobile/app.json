@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "HumanLink",
+    "slug": "humanlink",
+    "scheme": "humanlink",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "platforms": ["ios", "android", "web"],
+    "newArchEnabled": false,
+    "assetBundlePatterns": ["**/*"],
+    "web": {
+      "bundler": "metro",
+      "favicon": "./assets/favicon.png"
+    },
+    "jsEngine": "jsc",
+    "android": {
+      "package": "com.anonymous.humanlink"
+    },
+    "experiments": {
+      "typedRoutes": false
+    },
+    "plugins": [],
+    "extra": {
+      "router": false,
+      "eas": {
+        "projectId": "817417c5-238b-4ac9-8570-06fe03af532b"
+      }
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    }
+  }
+}

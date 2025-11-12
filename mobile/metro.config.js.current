@@ -1,0 +1,42 @@
+const { getDefaultConfig } = require('expo/metro-config');
+const path = require('path');
+
+const config = getDefaultConfig(__dirname);
+
+// Configuration du mock pour react-native-maps sur web
+const mockPath = path.resolve(__dirname, 'src/mocks/react-native-maps.js');
+
+// Override de la résolution pour react-native-maps sur web
+const upstream = config.resolver.resolveRequest;
+
+config.resolver.resolveRequest = (context, moduleName, platform) => {
+  try {
+    // Utiliser le mock pour react-native-maps sur web uniquement
+    if (platform === 'web' && moduleName === 'react-native-maps') {
+      return { type: 'sourceFile', filePath: mockPath };
+    }
+    
+    // Pour tout le reste, utiliser la résolution par défaut
+    if (upstream) {
+      try {
+        const result = upstream(context, moduleName, platform);
+        // S'assurer que le résultat est valide et a la structure attendue par Metro
+        if (result && typeof result === 'object' && result.type) {
+          return result;
+        }
+      } catch (upstreamError) {
+        // Si upstream échoue, continuer avec la résolution par défaut
+        console.warn(`Upstream resolver failed for ${moduleName}:`, upstreamError.message);
+      }
+    }
+    
+    // Retourner undefined pour laisser Metro utiliser sa résolution par défaut
+    return undefined;
+  } catch (error) {
+    // En cas d'erreur, logger et retourner undefined pour laisser Metro gérer
+    console.warn(`Metro resolveRequest error for ${moduleName}:`, error.message);
+    return undefined;
+  }
+};
+
+module.exports = config;
