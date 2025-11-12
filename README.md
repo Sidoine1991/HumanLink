@@ -44,23 +44,17 @@ HumanLink is a mobile application that fights urban isolation by connecting near
 
 ```mermaid
 flowchart LR
-    subgraph Client
-        App[Mobile App (Expo)]
-    end
-    subgraph Cloud
-        API[FastAPI Service]
-        DB[(PostgreSQL / Supabase)]
-        AI[[Emotion Analysis]]
-        Maps[(Maps API)]
-        Email[Email Provider]
-    end
+    App[Mobile App (Expo)]
+    API[FastAPI Service]
+    DB[(PostgreSQL / Supabase)]
+    AI[[Emotion Analysis]]
+    Maps[(Maps API)]
+    Email[Email Provider]
     App -->|REST / WebSocket (planned)| API
     API --> DB
     API --> AI
     API --> Maps
     API --> Email
-    classDef primary fill:#4a90e2,stroke:#1f3d73,color:#fff;
-    class App primary;
 ```
 
 ---
