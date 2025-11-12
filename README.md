@@ -47,7 +47,6 @@ flowchart LR
     subgraph Client
         App[Mobile App (Expo)]
     end
-
     subgraph Cloud
         API[FastAPI Service]
         DB[(PostgreSQL / Supabase)]
@@ -55,7 +54,6 @@ flowchart LR
         Maps[(Maps API)]
         Email[Email Provider]
     end
-
     App -->|REST / WebSocket (planned)| API
     API --> DB
     API --> AI
