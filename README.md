@@ -17,6 +17,7 @@ HumanLink is a mobile application that fights urban isolation by connecting near
 - [Tech Stack](#tech-stack)
 - [Illustrated Architecture](#illustrated-architecture)
 - [Getting Started](#getting-started)
+- [Live Demo](#live-demo)
 - [Production Landing Page](#production-landing-page)
 - [Environment Configuration](#environment-configuration)
 - [Project Structure](#project-structure)
@@ -110,6 +111,13 @@ docker compose up --build
 ```
 
 Customize the compose file with your secrets via environment variables or `.env` files ignored by Git.
+
+---
+
+## Live Demo
+- Frontend (Expo web on Vercel): [https://human-link.vercel.app](https://human-link.vercel.app)  
+- API (FastAPI on Render): [https://humanlink.onrender.com](https://humanlink.onrender.com)  
+- Swagger docs: [https://humanlink.onrender.com/docs](https://humanlink.onrender.com/docs)
 
 ---
 
