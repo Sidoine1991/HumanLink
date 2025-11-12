@@ -84,3 +84,14 @@ def create_app() -> FastAPI:
 app = create_app()
 
 
+@app.get("/", tags=["meta"])
+def root():
+    return {
+        "name": settings.app_name,
+        "version": "0.1.0",
+        "status": "online",
+        "docs": "/docs",
+        "health": "/health",
+    }
+
+
